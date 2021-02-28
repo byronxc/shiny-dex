@@ -25,7 +25,7 @@ function App() {
     <div >
         {pokemonList && pokemonList.map((value: PokemonJ) => {
           return <Pokemon pokemonNumber={value.pokemon_num} pokemonName={value.pokemon_name} 
-                    shiny={value.shiny} urlImage={value.url_image} shinyUrlImage={value.shiny_url_image}>
+                    shiny={value.shiny === 0 ? false : true} urlImage={value.url_image} shinyUrlImage={value.shiny_url_image}>
                  </Pokemon>
         })}
     </div>
