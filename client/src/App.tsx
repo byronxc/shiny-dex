@@ -14,13 +14,14 @@ export interface PokemonJ {
 
 function App() {
   const [pokemonList, setPokemon] = useState([]);
-
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setPokemon(response.data)
     })
   }, []);
   
+  
+
   return (
     <div >
         {pokemonList && pokemonList.map((value: PokemonJ) => {
