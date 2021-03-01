@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Axios from "axios";
 
 export interface IPokemonProps {
@@ -11,6 +11,7 @@ export interface IPokemonProps {
 interface PokemonState {
   isShiny: boolean;
   isPokemonNumber: number;
+  isShowPokemon: boolean;
 }
 
 export class Pokemon extends Component<IPokemonProps, PokemonState> {
@@ -18,8 +19,10 @@ export class Pokemon extends Component<IPokemonProps, PokemonState> {
     super(props);
     this.state = {
       isShiny: this.props.shiny,
-      isPokemonNumber: this.props.pokemonNumber
+      isPokemonNumber: this.props.pokemonNumber,
+      isShowPokemon: true
     };
+
     this.toggleShiny = this.toggleShiny.bind(this);
     this.toggleDelete = this.toggleDelete.bind(this);
   }
@@ -39,7 +42,8 @@ export class Pokemon extends Component<IPokemonProps, PokemonState> {
 
   toggleDelete = () => {
     this.setState(state => ({
-      isPokemonNumber: state.isPokemonNumber
+      isPokemonNumber: state.isPokemonNumber,
+      isShowPokemon: !state.isShowPokemon
     }));
     Axios.post("http://localhost:3001/api/delete", {
       shinyNumber: this.state.isPokemonNumber
@@ -51,10 +55,16 @@ export class Pokemon extends Component<IPokemonProps, PokemonState> {
   render() {
     return (
       <div>
-        <img alt="Pokemon Avatar" src={(this.state.isShiny === false) ? this.props.urlImage : this.props.shinyUrlImage} />
-        <p>Name: {this.props.pokemonName} < br />Number: {this.props.pokemonNumber}</p>
-        <button onClick={() => this.toggleShiny()}>Shiny</button>
-        <button onClick={() => this.toggleDelete()}>Delete</button>
+        {this.state.isShowPokemon
+          ?
+          <div>
+            <img alt="Pokemon Avatar" src={(this.state.isShiny === false) ? this.props.urlImage : this.props.shinyUrlImage} />
+            <p>Name: {this.props.pokemonName} < br />Number: {this.props.pokemonNumber}</p>
+            <button onClick={() => this.toggleShiny()}>Shiny</button>
+            <button onClick={() => this.toggleDelete()}>Delete</button>
+          </div>
+          :
+          null}
       </div>
     )
   }

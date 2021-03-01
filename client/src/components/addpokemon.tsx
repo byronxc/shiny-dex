@@ -26,7 +26,7 @@ export class AddPokemon extends Component<{}> {
         this.setState({ urlImage: event.target.value });
     }
 
-    handleChangeUrlShiny= (event: any) => {
+    handleChangeUrlShiny = (event: any) => {
         this.setState({ shinyUrlImage: event.target.value });
     }
 
@@ -40,9 +40,8 @@ export class AddPokemon extends Component<{}> {
             urlShiny: this.state.shinyUrlImage
         }).then(() => {
             console.log("Successful insert");
-        })  
-      }
-
+        })
+    }
 
     render() {
         return (
@@ -51,28 +50,28 @@ export class AddPokemon extends Component<{}> {
                     <ul>
                         <li>
                             <label>Number: </label>
-                            <input  type="number" name="number" onChange={this.handleChangeNumber}/>
+                            <input type="number" name="number" onChange={this.handleChangeNumber} />
                         </li>
                         <li>
                             <label>Name: </label>
                             <input type="text" name="name" placeholder="Ex Rioulu" onChange={this.handleChangeName} />
                         </li>
                         <li>
-                        <select name="shiny" onChange={this.handleChangeShiny}>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                        </select>
+                            <select name="shiny" onChange={this.handleChangeShiny}>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
                         </li>
                         <li>
                             <label>Url Picture: </label>
-                            <input type="text" name="urlImage"  onChange={this.handleChangeUrl}></input>
+                            <input type="text" name="urlImage" onChange={this.handleChangeUrl}></input>
                         </li>
                         <li>
                             <label>Shiny Url Picture: </label>
                             <input type="text" name="shinyUrlImage" onChange={this.handleChangeUrlShiny}></input>
                         </li>
                         <li>
-                            <input type="submit" value="Submit"/>
+                            <input type="submit" value="Submit" />
                         </li>
                     </ul>
                 </form>
