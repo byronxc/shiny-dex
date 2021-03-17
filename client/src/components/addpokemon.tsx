@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import './addpokemon.scss';
+
 
 export class AddPokemon extends Component<{}> {
     state = {
         number: 0,
         name: '',
-        shiny: 1,
+        shiny: 0,
         urlImage: '',
         shinyUrlImage: ''
     }
@@ -45,7 +47,7 @@ export class AddPokemon extends Component<{}> {
 
     render() {
         return (
-            <div >
+            <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <ul>
                         <li>
@@ -54,12 +56,13 @@ export class AddPokemon extends Component<{}> {
                         </li>
                         <li>
                             <label>Name: </label>
-                            <input type="text" name="name" placeholder="Ex Rioulu" onChange={this.handleChangeName} />
+                            <input type="text" name="name" placeholder="Ex Riolu" onChange={this.handleChangeName} />
                         </li>
                         <li>
+                            <label>Shiny: </label>
                             <select name="shiny" onChange={this.handleChangeShiny}>
-                                <option value="1">Yes</option>
                                 <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </li>
                         <li>
@@ -71,7 +74,7 @@ export class AddPokemon extends Component<{}> {
                             <input type="text" name="shinyUrlImage" onChange={this.handleChangeUrlShiny}></input>
                         </li>
                         <li>
-                            <input type="submit" value="Submit" />
+                            <input type="submit" value="Add" />
                         </li>
                     </ul>
                 </form>

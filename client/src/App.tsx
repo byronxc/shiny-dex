@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import { Pokemon } from './components/pokemon';
 import { AddPokemon } from './components/addpokemon';
 import Axios from "axios";
@@ -22,13 +22,18 @@ function App() {
   }, []);
 
   return (
-    <div >
+    <div className="app">
+      <header>
+        <h1>Shiny Dex</h1>
+      </header>
       <AddPokemon></AddPokemon>
+      <section>
       {pokemonList && pokemonList.map((value: PokemonJ) => {
         return <Pokemon pokemonNumber={value.pokemon_num} pokemonName={value.pokemon_name}
           shiny={value.shiny === 0 ? false : true} urlImage={value.url_image} shinyUrlImage={value.shiny_url_image}>
         </Pokemon>
       })}
+      </section>
     </div>
   );
 }

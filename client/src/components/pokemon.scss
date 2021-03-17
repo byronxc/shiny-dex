@@ -1,0 +1,41 @@
+.pokemon-dex {
+    display: inline-grid;
+}
+.pokemon-entry {
+    max-width: 10rem;
+    max-height: 25rem;
+    display: grid;
+    padding: 1rem;
+    justify-items: center;
+    margin: 1rem;
+    text-align: center;
+    color: gray;
+    font-size: 1.25rem;
+
+    img{
+        max-width: 70%;
+    }
+
+    button {
+        background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+        background-color:#599bb3;
+        border-radius:1rem;
+        border-color: #408c99;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:.75rem;
+        text-decoration:none;
+        margin: 0.2rem;
+
+    }
+
+    button:hover {
+        background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color:#408c99;
+        text-decoration: underline;
+    }
+
+
+}
+

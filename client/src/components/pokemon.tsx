@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Axios from "axios";
+import './pokemon.scss';
 
 export interface IPokemonProps {
   pokemonName: string;
@@ -8,6 +9,7 @@ export interface IPokemonProps {
   urlImage: string;
   shinyUrlImage: string;
 }
+
 interface PokemonState {
   isShiny: boolean;
   isPokemonNumber: number;
@@ -54,14 +56,16 @@ export class Pokemon extends Component<IPokemonProps, PokemonState> {
 
   render() {
     return (
-      <div>
+      <div className="pokemon-dex">
         {this.state.isShowPokemon
           ?
-          <div>
+          <div className="pokemon-entry">
             <img alt="Pokemon Avatar" src={(this.state.isShiny === false) ? this.props.urlImage : this.props.shinyUrlImage} />
-            <p>Name: {this.props.pokemonName} < br />Number: {this.props.pokemonNumber}</p>
-            <button onClick={() => this.toggleShiny()}>Shiny</button>
-            <button onClick={() => this.toggleDelete()}>Delete</button>
+            <span>#{this.props.pokemonNumber} {this.props.pokemonName}</span>
+            <div className="buttons"> 
+              <button onClick={() => this.toggleShiny()}>Shiny</button>
+              <button onClick={() => this.toggleDelete()}>Delete</button>
+            </div>
           </div>
           :
           null}
