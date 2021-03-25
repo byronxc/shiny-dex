@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Axios from "axios";
-import './pokemon.scss';
+import './Pokemon.scss';
 
 export interface IPokemonProps {
   pokemonName: string;
@@ -60,7 +60,7 @@ export class Pokemon extends Component<IPokemonProps, PokemonState> {
         {this.state.isShowPokemon
           ?
           <div className="pokemon-entry">
-            <img alt="Pokemon Avatar" src={(this.state.isShiny === false) ? this.props.urlImage : this.props.shinyUrlImage} />
+            <img alt="Pokemon Avatar" id="pokemon-image" src={this.state.isShiny ? this.props.shinyUrlImage : this.props.urlImage } />
             <span>#{this.props.pokemonNumber} {this.props.pokemonName}</span>
             <div className="buttons"> 
               <button onClick={() => this.toggleShiny()}>Shiny</button>

@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import './App.scss';
-import { Pokemon } from './components/pokemon';
-import { AddPokemon } from './components/addpokemon';
+import { Pokemon } from './components/Pokemon/Pokemon';
+import { AddPokemon } from './components/Addpokemon/Addpokemon';
 import Axios from "axios";
 
 export interface PokemonJ {

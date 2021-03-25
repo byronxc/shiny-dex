@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import './addpokemon.scss';
-
+import './Addpokemon.scss';
 
 export class AddPokemon extends Component<{}> {
     state = {
@@ -56,7 +55,7 @@ export class AddPokemon extends Component<{}> {
                         </li>
                         <li>
                             <label>Name: </label>
-                            <input type="text" name="name" placeholder="Ex Riolu" onChange={this.handleChangeName} />
+                            <input type="text" aria-label="Name:" name="name" placeholder="Ex Riolu" onChange={this.handleChangeName} />
                         </li>
                         <li>
                             <label>Shiny: </label>
@@ -66,11 +65,11 @@ export class AddPokemon extends Component<{}> {
                             </select>
                         </li>
                         <li>
-                            <label>Url Picture: </label>
+                            <label>Image URL: </label>
                             <input type="text" name="urlImage" onChange={this.handleChangeUrl}></input>
                         </li>
                         <li>
-                            <label>Shiny Url Picture: </label>
+                            <label>Shiny Image URL: </label>
                             <input type="text" name="shinyUrlImage" onChange={this.handleChangeUrlShiny}></input>
                         </li>
                         <li>
