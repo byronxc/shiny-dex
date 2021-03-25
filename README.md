@@ -1,4 +1,4 @@
-# shiny-dex
+# Shiny Dex
 React app that performs the four basic operations of persistent storage create, read, update, and delete (CRUD).
 
 # Create
